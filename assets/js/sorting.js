@@ -9,6 +9,8 @@ const sizeRange=document.querySelector('#sizeRange');
 const bubbleBtn=document.querySelector('#bubbleBtn');
 const selectionBtn=document.querySelector('#selectBtn');
 const insertionBtn=document.querySelector('#insertionBtn');
+const mergeBtn=document.querySelector('#mergeBtn');
+const quickBtn=document.querySelector('#quickBtn');
 sizeRange.addEventListener('input',function(e){
     removerBars(size);
     size=parseInt(e.target.value);
@@ -27,10 +29,10 @@ const removerBars=(sz)=>{
 }
 const newBars=(sz=20)=>{
     for (let i = 0; i < size; i++) {
-        div_height[i]=Math.floor(Math.random()*max_heigth+2);
+        div_height[i]=Math.floor(Math.random()*max_heigth+1);
         let newDiv=document.createElement('DIV');
         newDiv.style.width= 2 - size / 100 + "rem";
-        newDiv.style.height = div_height[i] + "rem";
+        newDiv.style.height = div_height[i]+2+ "rem";
         newDiv.innerHTML=`<p>${div_height[i]}</p>`
         div[i]=newDiv;
         bars.appendChild(div[i]);
@@ -59,42 +61,110 @@ newArrayBtn.addEventListener('click',()=>{
 });
 
 bubbleBtn.addEventListener('click',async ()=>{
+    bubbleBtn.classList.toggle('btn-primary');
+    bubbleBtn.classList.toggle('btn-outline-danger');
     newArrayBtn.disabled=true;
     selectionBtn.disabled=true;
     bubbleBtn.disabled=true;
     insertionBtn.disabled=true;
     sizeRange.disabled=true;
+    mergeBtn.disabled=true;
+    quickBtn.disabled=true;
     await bubble_sort();
+    bubbleBtn.classList.toggle('btn-primary');
+    bubbleBtn.classList.toggle('btn-outline-danger');
     newArrayBtn.disabled=false;
     selectionBtn.disabled=false;
     insertionBtn.disabled=false;
     sizeRange.disabled=false;
     bubbleBtn.disabled=false;
+    mergeBtn.disabled=false;
+    quickBtn.disabled=false;
+    
 })
-selectBtn.addEventListener('click',async ()=>{
+selectionBtn.addEventListener('click',async ()=>{
+    selectionBtn.classList.toggle('btn-primary');
+    selectionBtn.classList.toggle('btn-outline-danger');
     newArrayBtn.disabled=true;
     selectionBtn.disabled=true;
     insertionBtn.disabled=true;
     bubbleBtn.disabled=true;
     sizeRange.disabled=true;
+    quickBtn.disabled=true;
+    mergeBtn.disabled=true;
     await selection_sort();
+    selectionBtn.classList.toggle('btn-primary');
+    selectionBtn.classList.toggle('btn-outline-danger');
     newArrayBtn.disabled=false;
     selectionBtn.disabled=false;
     insertionBtn.disabled=false;
     sizeRange.disabled=false;
     bubbleBtn.disabled=false;
+    quickBtn.disabled=false;
+    mergeBtn.disabled=false;
 });
 insertionBtn.addEventListener('click',async ()=>{
+    insertionBtn.classList.toggle('btn-primary');
+    insertionBtn.classList.toggle('btn-outline-danger');
     newArrayBtn.disabled=true;
     selectionBtn.disabled=true;
     insertionBtn.disabled=true;
     bubbleBtn.disabled=true;
     sizeRange.disabled=true;
+    quickBtn.disabled=true;
+    mergeBtn.disabled=true;
     await insertion_sort();
+    insertionBtn.classList.toggle('btn-primary');
+    insertionBtn.classList.toggle('btn-outline-danger');
     newArrayBtn.disabled=false;
     selectionBtn.disabled=false;
     insertionBtn.disabled=false;
     sizeRange.disabled=false;
     bubbleBtn.disabled=false;
+    quickBtn.disabled=false;
+    mergeBtn.disabled=false;    
+
+});
+mergeBtn.addEventListener('click',async ()=>{
+    mergeBtn.classList.toggle('btn-primary');
+    mergeBtn.classList.toggle('btn-outline-danger');
+    newArrayBtn.disabled=true;
+    selectionBtn.disabled=true;
+    insertionBtn.disabled=true;
+    bubbleBtn.disabled=true;
+    sizeRange.disabled=true;
+    quickBtn.disabled=true;
+    mergeBtn.disabled=true;
+    await merge_sort(0,size-1);
+    mergeBtn.classList.toggle('btn-primary');
+    mergeBtn.classList.toggle('btn-outline-danger');
+    mergeBtn.disabled=false;
+    newArrayBtn.disabled=false;
+    selectionBtn.disabled=false;
+    insertionBtn.disabled=false;
+    sizeRange.disabled=false;
+    quickBtn.disabled=false;
+    bubbleBtn.disabled=false;
+});
+quickBtn.addEventListener('click',async ()=>{
+    quickBtn.classList.toggle('btn-primary');
+    quickBtn.classList.toggle('btn-outline-danger');
+    newArrayBtn.disabled=true;
+    selectionBtn.disabled=true;
+    insertionBtn.disabled=true;
+    mergeBtn.disabled=true;
+    bubbleBtn.disabled=true;
+    sizeRange.disabled=true;
+    quickBtn.disabled=true;
+    await quick(0,size-1);
+    quickBtn.classList.toggle('btn-primary');
+    quickBtn.classList.toggle('btn-outline-danger');
+    newArrayBtn.disabled=false;
+    selectionBtn.disabled=false;
+    insertionBtn.disabled=false;
+    mergeBtn.disabled=false;
+    sizeRange.disabled=false;
+    bubbleBtn.disabled=false;
+    quickBtn.disabled=false;
 });
 newBars(size);

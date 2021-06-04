@@ -14,37 +14,37 @@
 </head>
 
 <body>
-    <h1 id="title" class="text-center text-light text-uppercase mb-1">Sorting Vizualizer</h1>
+    <h1 id="title" class="text-center text-light text-uppercase mb-1">Sorting Visualizer</h1>
     <nav class="navbar navbar-dark navbar-expand-md">
         <ul class="navbar-nav">
             <li class="nav-item mx-1">
-                <button class="btn btn-outline-primary" id='newBtn'>New Array</button>
+                <button class="btn btn-info" id='newBtn'>New Array</button>
             </li>
             <li class="nav-item mx-1">
                 <input class="form-control-range" type="range" name="" id="sizeRange" min="20" max="40" value="5">
                 <small class="text-center text-light text-uppercase ml-4">No of Bar</small>
             </li>
             <li class="nav-item mx-1">
-                <input class="form-control-range" type="range" name="" id="timeDelay" min='200' max="2000" value="200">
-                <small class="text-center text-light text-uppercase ml-4">Set delay</small>
+                <input class="form-control-range" type="range" name="" id="timeDelay" min='200' max="4000" value="200">
+                <small class="text-center text-light text-uppercase ml-4">Slow motion</small>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-1">
-                <button class="btn btn-outline-primary" id='bubbleBtn'>Bubble Sort</button>
+                <button class="btn btn-info" id='bubbleBtn'>Bubble Sort</button>
             </li>
             <li class="nav-item mx-1">
-                <button  class="btn btn-outline-primary" id='selectBtn'>Selection Sort</button>
+                <button  class="btn btn-info" id='selectBtn'>Selection Sort</button>
             </li>
             <li class="nav-item mx-1">
-                <button  class="btn btn-outline-primary" id='insertionBtn'>Insertion Sort</button>
-            </li>
-            <!-- <li class="nav-item mx-1">
-                <button onclick="merge_sort()" class="btn btn-outline-primary">Merge Sort</button>
+                <button  class="btn btn-info" id='insertionBtn'>Insertion Sort</button>
             </li>
             <li class="nav-item mx-1">
-                <button class="btn btn-outline-primary">Quick Sort</button>
-            </li> -->
+                <button class="btn btn-info" id='mergeBtn'>Merge Sort</button>
+            </li>
+            <li class="nav-item mx-1">
+                <button class="btn btn-info" id='quickBtn'>Quick Sort</button>
+            </li>
         </ul>
 
         </div>
@@ -65,6 +65,8 @@
     <script src="./assets/js/bubblesort.js"></script>
     <script src="./assets/js/selection.js"></script>
     <script src="./assets/js/insertion.js"></script>
+    <script src="./assets/js/mergesort.js"></script>
+    <script src="./assets/js/quicksort.js"></script>
 </body>
 
 </html>
