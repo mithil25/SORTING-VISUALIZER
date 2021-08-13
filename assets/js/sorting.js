@@ -1,6 +1,6 @@
 var div_height = []
 var div = []
-var max_heigth=38;
+var max_heigth=34;
 var size=20;
 var delay=200;
 const newArrayBtn=document.querySelector('#newBtn');
